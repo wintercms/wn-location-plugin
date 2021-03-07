@@ -1,8 +1,8 @@
-<?php namespace RainLab\Location\Behaviors;
+<?php namespace Winter\Location\Behaviors;
 
 use Db;
-use RainLab\Location\Models\State;
-use RainLab\Location\Models\Country;
+use Winter\Location\Models\State;
+use Winter\Location\Models\Country;
 use System\Classes\ModelBehavior;
 use ApplicationException;
 use Exception;
@@ -16,7 +16,7 @@ use Exception;
  *
  * In the model class definition:
  *
- *   public $implement = ['RainLab.Location.Behaviors.LocationModel'];
+ *   public $implement = ['Winter.Location.Behaviors.LocationModel'];
  *
  */
 class LocationModel extends ModelBehavior
@@ -41,8 +41,8 @@ class LocationModel extends ModelBehavior
             ]);
         }
 
-        $model->belongsTo['country'] = ['RainLab\Location\Models\Country'];
-        $model->belongsTo['state']   = ['RainLab\Location\Models\State'];
+        $model->belongsTo['country'] = ['Winter\Location\Models\Country'];
+        $model->belongsTo['state']   = ['Winter\Location\Models\State'];
     }
 
     public function getCountryOptions()

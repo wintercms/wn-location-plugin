@@ -1,4 +1,4 @@
-<?php namespace RainLab\Location\Models;
+<?php namespace Winter\Location\Models;
 
 use Http;
 use Form;
@@ -10,17 +10,17 @@ use Exception;
  */
 class Country extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
+    use \Winter\Storm\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'rainlab_location_countries';
+    public $table = 'winter_location_countries';
 
     /**
      * @var array Behaviours implemented by this model.
      */
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    public $implement = ['@Winter.Translate.Behaviors.TranslatableModel'];
 
     /**
      * @var array The translatable table fields.
@@ -42,14 +42,14 @@ class Country extends Model
      */
     public $rules = [
         'name' => 'required',
-        'code' => 'unique:rainlab_location_countries',
+        'code' => 'unique:winter_location_countries',
     ];
 
     /**
      * @var array Relations
      */
     public $hasMany = [
-        'states' => ['RainLab\Location\Models\State']
+        'states' => ['Winter\Location\Models\State']
     ];
 
     /**

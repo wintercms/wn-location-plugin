@@ -1,7 +1,7 @@
-<?php namespace RainLab\Location\Updates;
+<?php namespace Winter\Location\Updates;
 
-use October\Rain\Database\Updates\Seeder;
-use RainLab\Location\Models\Country;
+use Winter\Storm\Database\Updates\Seeder;
+use Winter\Location\Models\Country;
 
 class SeedArStates extends Seeder
 {

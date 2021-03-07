@@ -1,9 +1,9 @@
-<?php namespace RainLab\Location\Updates;
+<?php namespace Winter\Location\Updates;
 
 use Schema;
-use RainLab\Location\Models\Country;
-use October\Rain\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
+use Winter\Location\Models\Country;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
 
 class AddEnabledStates extends Migration
 {

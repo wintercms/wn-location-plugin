@@ -1,8 +1,8 @@
-<?php namespace RainLab\Location\Updates;
+<?php namespace Winter\Location\Updates;
 
 use Schema;
-use October\Rain\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
 
 class CreateStatesTable extends Migration
 {
@@ -10,7 +10,7 @@ class CreateStatesTable extends Migration
     public function up()
     {
         /*
-         * The states table was previously owned by RainLab.User
+         * The states table was previously owned by Winter.User
          * so this occurance is detected and the table renamed.
          * @deprecated Safe to remove if year >= 2017
          */

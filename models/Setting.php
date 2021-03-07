@@ -1,4 +1,4 @@
-<?php namespace RainLab\Location\Models;
+<?php namespace Winter\Location\Models;
 
 use Model;
 

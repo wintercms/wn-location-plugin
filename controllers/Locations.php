@@ -1,11 +1,11 @@
-<?php namespace RainLab\Location\Controllers;
+<?php namespace Winter\Location\Controllers;
 
 use Lang;
 use Flash;
 use Backend;
 use BackendMenu;
-use RainLab\Location\Models\Country;
-use RainLab\Location\Models\State;
+use Winter\Location\Models\Country;
+use Winter\Location\Models\State;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 
@@ -24,14 +24,14 @@ class Locations extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
 
-    public $requiredPermissions = ['rainlab.location.access_settings'];
+    public $requiredPermissions = ['winter.location.access_settings'];
 
     public function __construct()
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.System', 'system', 'settings');
-        SettingsManager::setContext('RainLab.Location', 'location');
+        BackendMenu::setContext('Winter CMS.System', 'system', 'settings');
+        SettingsManager::setContext('Winter.Location', 'location');
     }
 
     /**
@@ -94,10 +94,10 @@ class Locations extends Controller
         }
 
         if ($enable) {
-            Flash::success(Lang::get('rainlab.location::lang.locations.enable_success'));
+            Flash::success(Lang::get('winter.location::lang.locations.enable_success'));
         }
         else {
-            Flash::success(Lang::get('rainlab.location::lang.locations.disable_success'));
+            Flash::success(Lang::get('winter.location::lang.locations.disable_success'));
         }
 
         return redirect()->refresh();
@@ -133,12 +133,12 @@ class Locations extends Controller
         }
 
         if ($pin) {
-            Flash::success(Lang::get('rainlab.location::lang.locations.pin_success'));
+            Flash::success(Lang::get('winter.location::lang.locations.pin_success'));
         }
         else {
-            Flash::success(Lang::get('rainlab.location::lang.locations.unpin_success'));
+            Flash::success(Lang::get('winter.location::lang.locations.unpin_success'));
         }
 
-        return Backend::redirect('rainlab/location/locations');
+        return Backend::redirect('winter/location/locations');
     }
 }
