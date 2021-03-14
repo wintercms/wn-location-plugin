@@ -9,14 +9,14 @@ class AddEnabledStates extends Migration
 {
     public function up()
     {
-        Schema::table('rainlab_location_states', function(Blueprint $table) {
+        Schema::table('winter_location_states', function(Blueprint $table) {
             $table->boolean('is_enabled')->after('country_id')->default(true);
         });
     }
 
     public function down()
     {
-        Schema::table('rainlab_location_states', function(Blueprint $table) {
+        Schema::table('winter_location_states', function(Blueprint $table) {
             $table->dropColumn('is_enabled');
         });
     }
