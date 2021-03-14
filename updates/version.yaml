@@ -26,3 +26,6 @@
 "1.1.6":
     - Added ability to disable specific states
     - v1.1.6/add_enabled_states.php
+"1.2.0":
+    - Rebrand to Winter.location
+    - v1.2.0/rename_tables.php
