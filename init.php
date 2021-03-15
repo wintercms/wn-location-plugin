@@ -3,8 +3,6 @@
 if (!class_exists(RainLab\Location\Plugin::class)) {
     class_alias(Winter\Location\Plugin::class, RainLab\Location\Plugin::class);
 
-    class_alias(Winter\Location\Behaviors\definition::class, RainLab\Location\Behaviors\definition::class);
-
     class_alias(Winter\Location\Controllers\Locations::class, RainLab\Location\Controllers\Locations::class);
 
     class_alias(Winter\Location\FormWidgets\AddressFinder::class, RainLab\Location\FormWidgets\AddressFinder::class);
