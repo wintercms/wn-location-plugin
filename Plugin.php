@@ -20,7 +20,8 @@ class Plugin extends PluginBase
             'description' => 'winter.location::lang.plugin.description',
             'author'      => 'Alexey Bobkov, Samuel Georges',
             'icon'        => 'icon-globe',
-            'homepage'    => 'https://github.com/wintercms/wn-location-plugin'
+            'homepage'    => 'https://github.com/wintercms/wn-location-plugin',
+            'replaces'    => 'RainLab.Location'
         ];
     }
 
