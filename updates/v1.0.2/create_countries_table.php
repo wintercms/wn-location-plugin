@@ -1,25 +1,25 @@
-<?php namespace RainLab\Location\Updates;
+<?php namespace Winter\Location\Updates;
 
 use Schema;
-use October\Rain\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
 
 class CreateCountriesTable extends Migration
 {
     public function up()
     {
         /*
-         * The countries table was previously owned by RainLab.User
+         * The countries table was previously owned by Winter.User
          * so this occurance is detected and the table renamed.
          * @deprecated Safe to remove if year >= 2017
          */
-        if (Schema::hasTable('rainlab_user_countries')) {
-            Schema::rename('rainlab_user_countries', 'rainlab_location_countries');
+        if (Schema::hasTable('winter_user_countries')) {
+            Schema::rename('winter_user_countries', 'winter_location_countries');
 
             return;
         }
 
-        Schema::create('rainlab_location_countries', function(Blueprint $table) {
+        Schema::create('winter_location_countries', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->boolean('is_enabled')->default(false);
@@ -30,7 +30,7 @@ class CreateCountriesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('rainlab_location_countries');
+        Schema::dropIfExists('winter_location_countries');
     }
 
 }

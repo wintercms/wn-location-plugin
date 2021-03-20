@@ -4,18 +4,18 @@
 
 fields:
     name:
-        label: rainlab.location::lang.state.name
+        label: winter.location::lang.state.name
         span: auto
-        commentAbove: rainlab.location::lang.state.name_comment
+        commentAbove: winter.location::lang.state.name_comment
     code:
-        label: rainlab.location::lang.state.code
+        label: winter.location::lang.state.code
         span: auto
-        commentAbove: rainlab.location::lang.state.code_comment
+        commentAbove: winter.location::lang.state.code_comment
         preset:
             field: name
             type: slug
     is_enabled:
-        label: rainlab.location::lang.locations.enabled_label
+        label: winter.location::lang.locations.enabled_label
         type: checkbox
         default: true
         span: left

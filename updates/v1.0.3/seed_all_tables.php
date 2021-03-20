@@ -1,7 +1,7 @@
-<?php namespace RainLab\Location\Updates;
+<?php namespace Winter\Location\Updates;
 
-use October\Rain\Database\Updates\Seeder;
-use RainLab\Location\Models\Country;
+use Winter\Storm\Database\Updates\Seeder;
+use Winter\Location\Models\Country;
 
 class SeedAllTables extends Seeder
 {
@@ -9,7 +9,7 @@ class SeedAllTables extends Seeder
     {
         /*
          * The countries and states table were previously seeded
-         * by RainLab.User so this occurance is detected and halt.
+         * by Winter.User so this occurance is detected and halt.
          * @deprecated Safe to remove if year >= 2017
          */
         if (Country::count() > 0) {

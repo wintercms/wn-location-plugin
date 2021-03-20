@@ -1,4 +1,4 @@
-<?php namespace RainLab\Location;
+<?php namespace Winter\Location;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -16,11 +16,12 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'rainlab.location::lang.plugin.name',
-            'description' => 'rainlab.location::lang.plugin.description',
+            'name'        => 'winter.location::lang.plugin.name',
+            'description' => 'winter.location::lang.plugin.description',
             'author'      => 'Alexey Bobkov, Samuel Georges',
             'icon'        => 'icon-globe',
-            'homepage'    => 'https://github.com/rainlab/location-plugin'
+            'homepage'    => 'https://github.com/wintercms/wn-location-plugin',
+            'replaces'    => 'RainLab.Location'
         ];
     }
 
@@ -28,23 +29,23 @@ class Plugin extends PluginBase
     {
         return [
             'location' => [
-                'label'       => 'rainlab.location::lang.locations.menu_label',
-                'description' => 'rainlab.location::lang.locations.menu_description',
-                'category'    => 'rainlab.location::lang.plugin.name',
+                'label'       => 'winter.location::lang.locations.menu_label',
+                'description' => 'winter.location::lang.locations.menu_description',
+                'category'    => 'winter.location::lang.plugin.name',
                 'icon'        => 'icon-globe',
-                'url'         => Backend::url('rainlab/location/locations'),
+                'url'         => Backend::url('winter/location/locations'),
                 'order'       => 500,
-                'permissions' => ['rainlab.location.access_settings'],
+                'permissions' => ['winter.location.access_settings'],
                 'keywords'    => 'country, countries, state',
             ],
             'settings' => [
-                'label'       => 'rainlab.location::lang.settings.menu_label',
-                'description' => 'rainlab.location::lang.settings.menu_description',
-                'category'    => 'rainlab.location::lang.plugin.name',
+                'label'       => 'winter.location::lang.settings.menu_label',
+                'description' => 'winter.location::lang.settings.menu_description',
+                'category'    => 'winter.location::lang.plugin.name',
                 'icon'        => 'icon-map-signs',
-                'class'       => 'RainLab\Location\Models\Setting',
+                'class'       => 'Winter\Location\Models\Setting',
                 'order'       => 600,
-                'permissions' => ['rainlab.location.access_settings'],
+                'permissions' => ['winter.location.access_settings'],
             ]
         ];
     }
@@ -52,7 +53,7 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'rainlab.location.access_settings' => ['tab' => 'rainlab.location::lang.plugin.name', 'label' => 'rainlab.location::lang.permissions.settings'],
+            'winter.location.access_settings' => ['tab' => 'winter.location::lang.plugin.name', 'label' => 'winter.location::lang.permissions.settings'],
         ];
     }
 
@@ -64,8 +65,8 @@ class Plugin extends PluginBase
     {
         return [
             'functions' => [
-                'form_select_country' => ['RainLab\Location\Models\Country', 'formSelect'],
-                'form_select_state'   => ['RainLab\Location\Models\State', 'formSelect']
+                'form_select_country' => ['Winter\Location\Models\Country', 'formSelect'],
+                'form_select_state'   => ['Winter\Location\Models\State', 'formSelect']
             ]
         ];
     }
@@ -76,7 +77,7 @@ class Plugin extends PluginBase
     public function registerFormWidgets()
     {
         return [
-            'RainLab\Location\FormWidgets\AddressFinder' => [
+            'Winter\Location\FormWidgets\AddressFinder' => [
                 'label' => 'Address Finder',
                 'code'  => 'addressfinder'
             ]

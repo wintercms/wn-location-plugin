@@ -3,29 +3,29 @@
 # ===================================
 
 # Record name
-name: rainlab.location::lang.location.label
+name: winter.location::lang.location.label
 
 # Model Form Field configuration
-form: ~/plugins/rainlab/location/models/country/fields.yaml
+form: ~/plugins/winter/location/models/country/fields.yaml
 
 # Model Class name
-modelClass: RainLab\Location\Models\Country
+modelClass: Winter\Location\Models\Country
 
 # Default redirect location
-defaultRedirect: rainlab/location/locations
+defaultRedirect: winter/location/locations
 
 # Create page
 create:
-    title: rainlab.location::lang.location.create_title
-    redirect: rainlab/location/locations/update/:id
-    redirectClose: rainlab/location/locations
+    title: winter.location::lang.location.create_title
+    redirect: winter/location/locations/update/:id
+    redirectClose: winter/location/locations
 
 # Update page
 update:
-    title: rainlab.location::lang.location.update_title
-    redirect: rainlab/location/locations
-    redirectClose: rainlab/location/locations
+    title: winter.location::lang.location.update_title
+    redirect: winter/location/locations
+    redirectClose: winter/location/locations
 
 # Preview page
 preview:
-    title: rainlab.location::lang.location.preview_title
+    title: winter.location::lang.location.preview_title

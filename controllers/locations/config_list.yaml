@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: ~/plugins/rainlab/location/models/country/columns.yaml
+list: ~/plugins/winter/location/models/country/columns.yaml
 
 # Model Class name
-modelClass: RainLab\Location\Models\Country
+modelClass: Winter\Location\Models\Country
 
 # List Title
-title: rainlab.location::lang.locations.list_title
+title: winter.location::lang.locations.list_title
 
 # Link URL for each record
-recordUrl: rainlab/location/locations/update/:id
+recordUrl: winter/location/locations/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

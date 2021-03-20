@@ -1,8 +1,8 @@
-<?php namespace RainLab\Location\FormWidgets;
+<?php namespace Winter\Location\FormWidgets;
 
 use Html;
 use Backend\Classes\FormWidgetBase;
-use RainLab\Location\Models\Setting;
+use Winter\Location\Models\Setting;
 
 /**
  * Address finder
@@ -20,7 +20,7 @@ use RainLab\Location\Models\Setting;
  *           city: city
  *           zip: zip
  *
- * @package rainlab\location
+ * @package winter\location
  * @author Alexey Bobkov, Samuel Georges
  */
 class AddressFinder extends FormWidgetBase

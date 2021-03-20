@@ -3,10 +3,10 @@
 # ===================================
 
 states:
-    label: rainlab.location::lang.state.label
-    list: ~/plugins/rainlab/location/models/state/columns.yaml
-    form: ~/plugins/rainlab/location/models/state/fields.yaml
+    label: winter.location::lang.state.label
+    list: ~/plugins/winter/location/models/state/columns.yaml
+    form: ~/plugins/winter/location/models/state/fields.yaml
     view:
         showSearch: true
-        toolbarPartial: $/rainlab/location/controllers/locations/_states_list_toolbar.htm
-        filter: $/rainlab/location/models/state/filters.yaml
+        toolbarPartial: $/winter/location/controllers/locations/_states_list_toolbar.htm
+        filter: $/winter/location/models/state/filters.yaml

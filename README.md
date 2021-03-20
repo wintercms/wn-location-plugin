@@ -1,13 +1,13 @@
 # Location plugin
 
-This plugin adds location based features to [OctoberCMS](http://octobercms.com).
+This plugin adds location based features to [Winter CMS](http://wintercms.com).
 
 * Easily add Country and State to any model
 * Form widget for address lookups (Google API)
 
 ### Extended features
 
-To integrate locations with front-end users consider installing the [User Plus+ plugin](http://octobercms.com/plugin/rainlab-userplus) (`RainLab.UserPlus`).
+To integrate locations with front-end users consider installing the [User Plus+ plugin](http://octobercms.com/plugin/rainlab-userplus) (`Winter.UserPlus`).
 
 ### Google API key requirement
 
@@ -24,14 +24,14 @@ This plugin provides an easy way to add location fields, country and state, to a
     $table->integer('country_id')->unsigned()->nullable()->index();
     $table->integer('state_id')->unsigned()->nullable()->index();
 
-Then implement the **RainLab.Location.Behaviors.LocationModel** behavior in the model class:
+Then implement the **Winter.Location.Behaviors.LocationModel** behavior in the model class:
 
-    public $implement = ['RainLab.Location.Behaviors.LocationModel'];
+    public $implement = ['Winter.Location.Behaviors.LocationModel'];
 
 This will automatically create two "belongs to" relationships:
 
-1. **state** - relation for RainLab\Location\Models\State
-1. **country** - relation for RainLab\Location\Models\Country
+1. **state** - relation for Winter\Location\Models\State
+1. **country** - relation for Winter\Location\Models\Country
 
 ### Back-end usage
 
@@ -40,31 +40,31 @@ This will automatically create two "belongs to" relationships:
 You are free to add the following form field definitions:
 
     country:
-        label: rainlab.location::lang.country.label
+        label: winter.location::lang.country.label
         type: dropdown
         span: left
-        placeholder: rainlab.location::lang.country.select
+        placeholder: winter.location::lang.country.select
 
     state:
-        label: rainlab.location::lang.state.label
+        label: winter.location::lang.state.label
         type: dropdown
         span: right
         dependsOn: country
-        placeholder: rainlab.location::lang.state.select
+        placeholder: winter.location::lang.state.select
 
 #### Lists
 
 For the list column definitions, you can use the following snippet:
 
      country:
-         label: rainlab.location::lang.country.label
+         label: winter.location::lang.country.label
          searchable: true
          relation: country
          select: name
          sortable: false
 
      state:
-         label: rainlab.location::lang.state.label
+         label: winter.location::lang.state.label
          searchable: true
          relation: state
          select: name
