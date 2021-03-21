@@ -18,7 +18,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'winter.location::lang.plugin.name',
             'description' => 'winter.location::lang.plugin.description',
-            'author'      => 'Alexey Bobkov, Samuel Georges',
+            'author'      => 'Winter CMS',
             'icon'        => 'icon-globe',
             'homepage'    => 'https://github.com/wintercms/wn-location-plugin',
             'replaces'    => 'RainLab.Location'

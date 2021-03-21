@@ -1,13 +1,9 @@
 # Location plugin
 
-This plugin adds location based features to [Winter CMS](http://wintercms.com).
+This plugin adds location based features to [Winter CMS](https://wintercms.com).
 
 * Easily add Country and State to any model
 * Form widget for address lookups (Google API)
-
-### Extended features
-
-To integrate locations with front-end users consider installing the [User Plus+ plugin](http://octobercms.com/plugin/rainlab-userplus) (`Winter.UserPlus`).
 
 ### Google API key requirement
 
