@@ -2,6 +2,7 @@
 
 use Winter\Storm\Database\Updates\Seeder;
 use Winter\Location\Models\Country;
+use Winter\Location\Models\State;
 
 class SeedItStates extends Seeder
 {
