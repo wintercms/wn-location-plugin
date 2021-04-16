@@ -14,12 +14,12 @@ class CreateStatesTable extends Migration
          * so this occurance is detected and the table renamed.
          * @deprecated Safe to remove if year >= 2017
          */
-        if (Schema::hasTable('winter_user_states')) {
-            Schema::rename('winter_user_states', 'winter_location_states');
+        if (Schema::hasTable('rainlab_user_states')) {
+            Schema::rename('rainlab_user_states', 'rainlab_location_states');
             return;
         }
 
-        Schema::create('winter_location_states', function(Blueprint $table) {
+        Schema::create('rainlab_location_states', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('country_id')->unsigned()->index();
@@ -30,7 +30,7 @@ class CreateStatesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('winter_location_states');
+        Schema::dropIfExists('rainlab_location_states');
     }
 
 }

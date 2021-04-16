@@ -9,7 +9,7 @@ class AddCountryPinnedFlag extends Migration
 {
     public function up()
     {
-        Schema::table('winter_location_countries', function(Blueprint $table) {
+        Schema::table('rainlab_location_countries', function(Blueprint $table) {
             $table->boolean('is_pinned')->default(false);
         });
 
@@ -18,7 +18,7 @@ class AddCountryPinnedFlag extends Migration
 
     public function down()
     {
-        Schema::table('winter_location_countries', function(Blueprint $table) {
+        Schema::table('rainlab_location_countries', function(Blueprint $table) {
             $table->dropColumn('is_pinned');
         });
     }
