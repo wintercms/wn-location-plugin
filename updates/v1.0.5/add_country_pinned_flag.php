@@ -13,7 +13,15 @@ class AddCountryPinnedFlag extends Migration
             $table->boolean('is_pinned')->default(false);
         });
 
+        Country::extend(function ($model) {
+            $model->setTable('rainlab_location_countries');
+        });
+
         Country::whereIn('code', ['AU', 'CA', 'GB', 'US'])->update(['is_pinned' => 1]);
+
+        Country::extend(function ($model) {
+            $model->setTable('winter_location_countries');
+        });
     }
 
     public function down()

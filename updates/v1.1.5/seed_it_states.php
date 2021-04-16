@@ -7,6 +7,14 @@ class SeedItStates extends Seeder
 {
     public function run()
     {
+        Country::extend(function ($model) {
+            $model->setTable('rainlab_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('rainlab_location_states');
+        });
+
         $it = Country::whereCode('IT')->first();
 
         if ($it->states()->count() > 0) {
@@ -118,5 +126,13 @@ class SeedItStates extends Seeder
             ['code' => 'VI', 'name' =>	'Vicenza'],
             ['code' => 'VT', 'name' =>	'Viterbo'],
         ]);
+
+        Country::extend(function ($model) {
+            $model->setTable('winter_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('winter_location_states');
+        });
     }
 }

@@ -7,6 +7,14 @@ class SeedArStates extends Seeder
 {
     public function run()
     {
+        Country::extend(function ($model) {
+            $model->setTable('rainlab_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('rainlab_location_states');
+        });
+
         $ar = Country::whereCode('AR')->first();
 
         if ($ar->states()->count() > 0) {
@@ -38,5 +46,13 @@ class SeedArStates extends Seeder
             ['code' => 'TF', 'name' => 'Tierra del Fuego'],
             ['code' => 'TU', 'name' => 'Tucumán'],
         ]);
+
+        Country::extend(function ($model) {
+            $model->setTable('winter_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('winter_location_states');
+        });
     }
 }

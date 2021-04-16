@@ -2,11 +2,20 @@
 
 use Winter\Storm\Database\Updates\Seeder;
 use Winter\Location\Models\Country;
+use Winter\Location\Models\State;
 
 class SeedAllTables extends Seeder
 {
     public function run()
     {
+        Country::extend(function ($model) {
+            $model->setTable('rainlab_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('rainlab_location_states');
+        });
+
         /*
          * The countries and states table were previously seeded
          * by Winter.User so this occurance is detected and halt.
@@ -844,5 +853,13 @@ class SeedAllTables extends Seeder
             ["code" => "MX-YUC", "name" => "Yucatán"],
             ["code" => "MX-ZAC", "name" => "Zacatecas"]
         ]);
+
+        Country::extend(function ($model) {
+            $model->setTable('winter_location_countries');
+        });
+
+        State::extend(function ($model) {
+            $model->setTable('winter_location_states');
+        });
     }
 }
