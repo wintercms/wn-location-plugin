@@ -10,6 +10,7 @@ class SeedArStates extends Seeder
     {
         Country::extend(function ($model) {
             $model->setTable('rainlab_location_countries');
+            $model->rules['code'] = 'unique:rainlab_location_countries';
         });
 
         State::extend(function ($model) {
@@ -50,6 +51,7 @@ class SeedArStates extends Seeder
 
         Country::extend(function ($model) {
             $model->setTable('winter_location_countries');
+            $model->rules['code'] = 'unique:winter_location_countries';
         });
 
         State::extend(function ($model) {
