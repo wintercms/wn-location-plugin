@@ -21,7 +21,7 @@ class Plugin extends PluginBase
             'author'      => 'Winter CMS',
             'icon'        => 'icon-globe',
             'homepage'    => 'https://github.com/wintercms/wn-location-plugin',
-            'replaces'    => 'RainLab.Location'
+            'replaces'    => ['RainLab.Location' => '<= 1.1.6'],
         ];
     }
 
