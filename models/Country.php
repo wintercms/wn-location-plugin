@@ -42,7 +42,7 @@ class Country extends Model
      */
     public $rules = [
         'name' => 'required',
-        'code' => 'unique:winter_location_countries',
+        'code' => 'unique',
     ];
 
     /**
