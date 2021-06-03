@@ -9,11 +9,11 @@ class SeedItStates extends Seeder
     public function run()
     {
         Country::extend(function ($model) {
-            $model->setTable('rainlab_location_countries');
+            $model->setTable('winter_location_countries');
         });
 
         State::extend(function ($model) {
-            $model->setTable('rainlab_location_states');
+            $model->setTable('winter_location_states');
         });
 
         $it = Country::whereCode('RU')->first();
@@ -109,13 +109,5 @@ class SeedItStates extends Seeder
             ['code' => '92', 'name' => 'Севастополь'],
             ['code' => '95', 'name' => 'Чеченская Республика'],
         ]);
-
-        Country::extend(function ($model) {
-            $model->setTable('winter_location_countries');
-        });
-
-        State::extend(function ($model) {
-            $model->setTable('winter_location_states');
-        });
     }
 }
