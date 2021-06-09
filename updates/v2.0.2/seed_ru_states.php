@@ -2,20 +2,11 @@
 
 use Winter\Storm\Database\Updates\Seeder;
 use Winter\Location\Models\Country;
-use Winter\Location\Models\State;
 
-class SeedItStates extends Seeder
+class SeedRuStates extends Seeder
 {
     public function run()
     {
-        Country::extend(function ($model) {
-            $model->setTable('winter_location_countries');
-        });
-
-        State::extend(function ($model) {
-            $model->setTable('winter_location_states');
-        });
-
         $country = Country::whereCode('RU')->first();
 
         if ($country->states()->count() > 0) {
