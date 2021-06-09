@@ -16,13 +16,13 @@ class SeedItStates extends Seeder
             $model->setTable('winter_location_states');
         });
 
-        $it = Country::whereCode('RU')->first();
+        $country = Country::whereCode('RU')->first();
 
-        if ($it->states()->count() > 0) {
+        if ($country->states()->count() > 0) {
             return;
         }
 
-        $it->states()->createMany([
+        $country->states()->createMany([
             ['code' => 'RU-AD', 'name' => 'Адыгея'],
             ['code' => 'RU-BA', 'name' => 'Башкортостан'],
             ['code' => 'RU-BU', 'name' => 'Бурятия'],
@@ -101,12 +101,12 @@ class SeedItStates extends Seeder
             ['code' => 'RU-MOW', 'name' => 'Москва'],
             ['code' => 'RU-SPE', 'name' => 'Санкт-Петербург'],
             ['code' => 'RU-YEV', 'name' => 'Еврейская автономная область'],
-            ['code' => 'UA-43', 'name' => 'Крым'],
+            ['code' => 'UA-43',  'name' => 'Крым'],
             ['code' => 'RU-NEN', 'name' => 'Ненецкий автономный округ'],
             ['code' => 'RU-KHM', 'name' => 'Ханты-Мансийский автономный округ - Югра'],
             ['code' => 'RU-CHU', 'name' => 'Чукотский автономный округ'],
             ['code' => 'RU-YAN', 'name' => 'Ямало-Ненецкий автономный округ'],
-            ['code' => 'UA-40', 'name' => 'Севастополь'],
+            ['code' => 'UA-40',  'name' => 'Севастополь'],
             ['code' => 'RU-CE', 'name' => 'Чечня'],
         ]);
     }
