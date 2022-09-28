@@ -81,10 +81,8 @@ class LocationPicker extends ComponentBase
      * Gets the selected country from the component properties.
      *
      * The country may be specified as an ID, or as a country code or name.
-     *
-     * @return Country|null
      */
-    public function getSelectedCountry()
+    public function getSelectedCountry(): ?Country
     {
         $selectedCountry = $this->property('selectedCountry');
 
@@ -105,10 +103,8 @@ class LocationPicker extends ComponentBase
 
     /**
      * Country options provider.
-     *
-     * @return array
      */
-    public function getSelectedCountryOptions()
+    public function getSelectedCountryOptions(): array
     {
         $options = ['' => 'No country selected'];
 
