@@ -7,7 +7,7 @@
         emptyOption: 'Select a country',
         'data-request': 'onInit',
         'data-request-update': {
-            (__SELF__ ~ '::country-state'): '#partialCountryState'
+            (__SELF__ ~ '::state'): '#stateSelection'
         }
     }) }}
 </div>
@@ -15,7 +15,7 @@
     <input name="{{ __SELF__.property('countryFieldName') }}" type="hidden" value="{{ selectedCountryId }}" />
 {% endif %}
 
-<div class="form-group">
+<div class="form-group" id="stateSelection">
     <label for="accountState">State</label>
     {{ form_select_state(__SELF__.property('stateFieldName'), countryId, stateId, {
         id: 'accountState',

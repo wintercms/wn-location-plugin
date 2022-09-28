@@ -69,6 +69,21 @@ class LocationPicker extends ComponentBase
         $this->page['selectedCountryId'] = $this->getSelectedCountry()?->id;
     }
 
+    /**
+     * Handler for when the country is changed.
+     */
+    public function onChangeCountry()
+    {
+        $this->page['countryId'] = post($this->property('countryFieldName'), $this->getSelectedCountry()?->id);
+    }
+
+    /**
+     * Gets the selected country from the component properties.
+     *
+     * The country may be specified as an ID, or as a country code or name.
+     *
+     * @return Country|null
+     */
     public function getSelectedCountry()
     {
         $selectedCountry = $this->property('selectedCountry');
@@ -88,6 +103,11 @@ class LocationPicker extends ComponentBase
         return $this->selectedCountry = Country::find($selectedCountry);
     }
 
+    /**
+     * Country options provider.
+     *
+     * @return array
+     */
     public function getSelectedCountryOptions()
     {
         $options = ['' => 'No country selected'];
