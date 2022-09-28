@@ -4,14 +4,17 @@ use Backend;
 use System\Classes\PluginBase;
 
 /**
- * Location Plugin Information File
+ * Location Plugin
+ *
+ * Location based features, such as Country and State
+ *
+ * @author Alexey Bobkov, Samuel Georges (original plugin)
+ * @author Winter CMS
  */
 class Plugin extends PluginBase
 {
     /**
-     * Returns information about this plugin.
-     *
-     * @return array
+     * {@inheritDoc}
      */
     public function pluginDetails()
     {
@@ -25,6 +28,9 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerSettings()
     {
         return [
@@ -50,6 +56,19 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function registerComponents()
+    {
+        return [
+            'Winter\Location\Components\LocationPicker' => 'locationPicker',
+        ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function registerPermissions()
     {
         return [
@@ -58,8 +77,7 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Register new Twig variables
-     * @return array
+     * {@inheritDoc}
      */
     public function registerMarkupTags()
     {
@@ -72,7 +90,7 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Registers any form widgets implemented in this plugin.
+     * {@inheritDoc}
      */
     public function registerFormWidgets()
     {
@@ -84,6 +102,11 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * Registers class aliases used by this plugin.
+     *
+     * @return array
+     */
     public function registerClassAliases()
     {
         /**

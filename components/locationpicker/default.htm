@@ -1,0 +1,25 @@
+{% if not selectedCountryId %}
+<div class="form-group">
+    <label for="accountCountry">Country</label>
+    {{ form_select_country(__SELF__.property('countryFieldName'), countryId, {
+        id: 'accountCountry',
+        class: 'form-control',
+        emptyOption: 'Select a country',
+        'data-request': 'onInit',
+        'data-request-update': {
+            (__SELF__ ~ '::country-state'): '#partialCountryState'
+        }
+    }) }}
+</div>
+{% else %}
+    <input name="{{ __SELF__.property('countryFieldName') }}" type="hidden" value="{{ selectedCountryId }}" />
+{% endif %}
+
+<div class="form-group">
+    <label for="accountState">State</label>
+    {{ form_select_state(__SELF__.property('stateFieldName'), countryId, stateId, {
+        id: 'accountState',
+        class: 'form-control',
+        emptyOption: 'Select a state'
+    }) }}
+</div>
