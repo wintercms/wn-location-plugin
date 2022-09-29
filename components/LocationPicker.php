@@ -64,8 +64,8 @@ class LocationPicker extends ComponentBase
      */
     public function onRun()
     {
-        $this->page['countryId'] = post($this->property('countryFieldName'), $this->getSelectedCountry()?->id);
-        $this->page['stateId'] = post($this->property('stateFieldName'));
+        $this->page['countryId'] = post($this->property('countryFieldName'), $this->page['countryId'] ?? $this->getSelectedCountry()?->id);
+        $this->page['stateId'] = post($this->property('stateFieldName'), $this->page['stateId']);
         $this->page['selectedCountryId'] = $this->getSelectedCountry()?->id;
     }
 
@@ -74,7 +74,7 @@ class LocationPicker extends ComponentBase
      */
     public function onChangeCountry()
     {
-        $this->page['countryId'] = post($this->property('countryFieldName'), $this->getSelectedCountry()?->id);
+        $this->page['countryId'] = post($this->property('countryFieldName'), $this->page['countryId'] ?? $this->getSelectedCountry()?->id);
     }
 
     /**
