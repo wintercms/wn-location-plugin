@@ -29,7 +29,8 @@
     },
     "require": {
         "php": ">=7.2",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "league/iso3166": "^4.3"
     },
     "replace": {
         "rainlab/location-plugin": "<= 1.1.6"
