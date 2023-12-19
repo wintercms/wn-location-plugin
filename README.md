@@ -126,7 +126,7 @@ $model->save();
 ```
 ### ISO 3166-1 accessors
 
-The behavior will also provide specials ISO-3166-1 accessors to the model through the [league/iso3166](https://github.com/thephpleague/iso3166).  
+The behavior will also provide specials ISO-3166-1 accessors to the model through the [league/iso3166](https://github.com/thephpleague/iso3166) package.  
 Availables accessors are `iso_name` (country name), `iso_alpha3` (three-letter code), `iso_numeric` (three-digit code), `iso_currencies` (three-digit currencies code) and `iso` (array of all iso attributes).
 
 ```php
