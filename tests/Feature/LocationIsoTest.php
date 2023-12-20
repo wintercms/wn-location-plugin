@@ -7,7 +7,6 @@ use System\Tests\Bootstrap\PluginTestCase;
 
 class LocationIsoTest extends PluginTestCase
 {
-
     public function testGetCountryIso()
     {
         $country = Country::whereCode('US')->first();
