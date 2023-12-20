@@ -2,9 +2,9 @@
 
 namespace Winter\Location\Tests\Unit;
 
-use Winter\Location\Plugin;
 use System\Classes\PluginBase;
 use System\Tests\Bootstrap\PluginTestCase;
+use Winter\Location\Plugin;
 
 class LocationPluginTest extends PluginTestCase
 {
