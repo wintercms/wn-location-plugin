@@ -62,6 +62,11 @@ class Country extends Model
      */
     protected static $nameList = null;
 
+    /**
+     * @var array Cache for ISO attributes
+     */
+    protected static $iso = null;
+
     public static function getNameList()
     {
         if (self::$nameList) {
@@ -104,5 +109,61 @@ class Country extends Model
             }
         }
         catch (Exception $e) {}
+    }
+
+    /**
+     * Return all ISO 3166-1 attributes
+     *
+     * @return array
+     */
+    public function getIsoAttribute(): array
+    {
+        if (self::$iso) {
+            return self::$iso;
+        }
+
+        try {
+            return self::$iso = (new \League\ISO3166\ISO3166)->alpha2($this->code);
+        } catch (\Throwable $th) {}
+    }
+
+    /**
+     * Return ISO 3166-1 country name
+     *
+     * @return string|null
+     */
+    public function getIsoNameAttribute(): ?string
+    {
+        return self::getIsoAttribute()['name'];
+    }
+
+    /**
+     * Return ISO 3166-1 alpha-3 code (three-letter)
+     *
+     * @return string|null
+     */
+    public function getIsoAlpha3Attribute(): ?string
+    {
+        return self::getIsoAttribute()['alpha3'];
+    }
+
+    /**
+     * Return ISO 3166-1 numeric country code (three-digit)
+     *
+     * @return string|null
+     */
+    public function getIsoNumericAttribute(): ?string
+    {
+        return self::getIsoAttribute()['numeric'];
+    }
+
+    /**
+     * Return ISO 3166-1 currencies code (three-digit)
+     *
+     * @return array
+     */
+    public function getIsoCurrenciesAttribute(): array
+    {
+        return self::getIsoAttribute()['currency'];
     }
 }

@@ -17,12 +17,16 @@ Copy the key and enter it in the **Settings > Location settings** area. If you f
 
 This plugin provides an easy way to add location fields, country and state, to any model. Simply add these columns to the database table:
 
-    $table->integer('country_id')->unsigned()->nullable()->index();
-    $table->integer('state_id')->unsigned()->nullable()->index();
+```php
+$table->integer('country_id')->unsigned()->nullable()->index();
+$table->integer('state_id')->unsigned()->nullable()->index();
+```
 
 Then implement the **Winter.Location.Behaviors.LocationModel** behavior in the model class:
 
-    public $implement = ['Winter.Location.Behaviors.LocationModel'];
+```php
+public $implement = ['Winter.Location.Behaviors.LocationModel'];
+```
 
 This will automatically create two "belongs to" relationships:
 
@@ -35,82 +39,123 @@ This will automatically create two "belongs to" relationships:
 
 You are free to add the following form field definitions:
 
-    country:
-        label: winter.location::lang.country.label
-        type: dropdown
-        span: left
-        placeholder: winter.location::lang.country.select
+```yaml
+country:
+    label: winter.location::lang.country.label
+    type: dropdown
+    span: left
+    placeholder: winter.location::lang.country.select
 
-    state:
-        label: winter.location::lang.state.label
-        type: dropdown
-        span: right
-        dependsOn: country
-        placeholder: winter.location::lang.state.select
+state:
+    label: winter.location::lang.state.label
+    type: dropdown
+    span: right
+    dependsOn: country
+    placeholder: winter.location::lang.state.select
+```
 
 #### Lists
 
 For the list column definitions, you can use the following snippet:
 
-     country:
-         label: winter.location::lang.country.label
-         searchable: true
-         relation: country
-         select: name
-         sortable: false
+```yaml
+country:
+    label: winter.location::lang.country.label
+    searchable: true
+    relation: country
+    select: name
+    sortable: false
 
-     state:
-         label: winter.location::lang.state.label
-         searchable: true
-         relation: state
-         select: name
-         sortable: false
-
+state:
+    label: winter.location::lang.state.label
+    searchable: true
+    relation: state
+    select: name
+    sortable: false
+```
 ### Front-end usage
 
 The front-end can also use the relationships by creating a partial called **country-state** with the content:
 
-    {% set countryId = countryId|default(form_value('country_id')) %}
-    {% set stateId = stateId|default(form_value('state_id')) %}
+```twig
+{% set countryId = countryId|default(form_value('country_id')) %}
+{% set stateId = stateId|default(form_value('state_id')) %}
 
-    <div class="form-group">
-        <label for="accountCountry">Country</label>
-        {{ form_select_country('country_id', countryId, {
-            id: 'accountCountry',
-            class: 'form-control',
-            emptyOption: '',
-            'data-request': 'onInit',
-            'data-request-update': {
-                'country-state': '#partialCountryState'
-            }
-        }) }}
-    </div>
+<div class="form-group">
+    <label for="accountCountry">Country</label>
+    {{ form_select_country('country_id', countryId, {
+        id: 'accountCountry',
+        class: 'form-control',
+        emptyOption: '',
+        'data-request': 'onInit',
+        'data-request-update': {
+            'country-state': '#partialCountryState'
+        }
+    }) }}
+</div>
 
-    <div class="form-group">
-        <label for="accountState">State</label>
-        {{ form_select_state('state_id', countryId, stateId, {
-            id: 'accountState',
-            class: 'form-control',
-            emptyOption: ''
-        }) }}
-    </div>
+<div class="form-group">
+    <label for="accountState">State</label>
+    {{ form_select_state('state_id', countryId, stateId, {
+        id: 'accountState',
+        class: 'form-control',
+        emptyOption: ''
+    }) }}
+</div>
+```
 
 This partial can be rendered in a form with the following:
 
-    <div id="partialCountryState">
-        {% partial 'country-state' countryId=user.country_id stateId=user.state_id %}
-    </div>
+```twig
+<div id="partialCountryState">
+    {% partial 'country-state' countryId=user.country_id stateId=user.state_id %}
+</div>
+```
 
 ### Short code accessors
 
 The behavior will also add a special short code accessor and setter to the model that converts `country_code` and `state_code` to their respective identifiers.
 
-    // Softly looks up and sets the country_id and state_id
-    // for these Country and State relations.
+```php
+// Softly looks up and sets the country_id and state_id
+// for these Country and State relations.
 
-    $model->country_code = "US";
-    $model->state_code = "FL";
-    $model->save();
+$model->country_code = "US";
+$model->state_code = "FL";
+$model->save();
+```
+### ISO 3166-1 accessors
+
+The behavior will also add the ISO-3166-1 values as accessors to the model (data sourced from the [league/iso3166](https://github.com/thephpleague/iso3166) package).  
+Availables accessors are `iso_name` (country name), `iso_alpha3` (three-letter code), `iso_numeric` (three-digit code), `iso_currencies` (three-digit currencies code) and `iso` (array of all iso attributes).
+
+```php
+$usCountry = \Winter\Location\Models\Country::whereCode('US')->first();
+
+$usCountry->iso_name;
+// (string) "United States of America"
+
+$usCountry->iso_alpha3;
+// (string) "USA"
+
+$usCountry->iso_numeric;
+// (string) "840"
+
+$usCountry->iso_currencies;
+// (array) [ 0 => "USD" ]
+
+$usCountry->iso;
+// (array) [
+//     "name" => "United States of America"
+//     "alpha2" => "US"
+//     "alpha3" => "USA"
+//     "numeric" => "840"
+//     "currency" => [
+//         0 => "USD"
+//     ]
+// ]
+
+```
 
 ### Address Finder Form Widget
 
@@ -134,35 +179,37 @@ You can restrict the address lookup to certain countries by defining the `countr
 
 Usage:
 
-    # ===================================
-    #  Form Field Definitions
-    # ===================================
+```yaml
+# ===================================
+#  Form Field Definitions
+# ===================================
 
-    fields:
-        address:
-            label: Address
-            type: addressfinder
-            countryRestriction: 'us,ch'
-            fieldMap:
-                latitude: latitude
-                longitude: longitude
-                city: city
-                zip: zip
-                country: country_code
-                state: state_code
-                vicinity: vicinity
+fields:
+    address:
+        label: Address
+        type: addressfinder
+        countryRestriction: 'us,ch'
+        fieldMap:
+            latitude: latitude
+            longitude: longitude
+            city: city
+            zip: zip
+            country: country_code
+            state: state_code
+            vicinity: vicinity
 
-        city:
-            label: City
-        zip:
-            label: Zip
-        country_code:
-            label: Country
-        state_code:
-            label: State
-        latitude:
-            label: Latitude
-        longitude:
-            label: Longitude
-        vicinity:
-            label: Vicinity
+    city:
+        label: City
+    zip:
+        label: Zip
+    country_code:
+        label: Country
+    state_code:
+        label: State
+    latitude:
+        label: Latitude
+    longitude:
+        label: Longitude
+    vicinity:
+        label: Vicinity
+```
