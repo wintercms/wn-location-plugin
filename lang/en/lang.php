@@ -67,4 +67,23 @@ return [
         'enabled' => 'Enabled',
         'pinned' => 'Pinned',
     ],
+    'locationPicker' => [
+        'name' => 'Location Picker',
+        'description' => 'Adds state and country selections to a form.',
+        'selectedCountry' => [
+            'title' => 'Selected country',
+            'description' => 'If set, the selected country will be preselected, and only a state selection field will be shown.',
+        ],
+        'countryFieldName' => [
+            'title' => 'Country',
+            'description' => 'Defines the POST name for the Country field',
+        ],
+        'stateFieldName' => [
+            'title' => 'State',
+            'description' => 'Defines the POST name for the State field',
+        ],
+        'group' => [
+            'fields' => 'Field names',
+        ],
+    ],
 ];
