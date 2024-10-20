@@ -1,9 +1,26 @@
-# Location plugin
+# Location Plugin
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/wintercms/wn-location-plugin/blob/main/LICENSE)
 
 This plugin adds location based features to [Winter CMS](https://wintercms.com).
 
-* Easily add Country and State to any model
-* Form widget for address lookups (Google API)
+Supports:
+- Easily add Country and State to any model
+- Form widget for address lookups (Google API)
+
+## Installation
+
+This plugin is available for installation via [Composer](http://getcomposer.org/).
+
+```bash
+composer require winter/wn-location-plugin
+```
+
+After installing the plugin you will need to run the migrations and (if you are using a [public folder](https://wintercms.com/docs/develop/docs/setup/configuration#using-a-public-folder)) [republish your public directory](https://wintercms.com/docs/develop/docs/console/setup-maintenance#mirror-public-files).
+
+```bash
+php artisan migrate
+```
 
 ### Google API key requirement
 
