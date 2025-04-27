@@ -1,9 +1,11 @@
-<?php namespace Winter\Location\Models;
+<?php 
 
-use Http;
-use Form;
-use Model;
+namespace Winter\Location\Models;
+
 use Exception;
+use Form;
+use Http;
+use Winter\Storm\Database\Model;
 
 /**
  * Country Model
