@@ -1,6 +1,8 @@
-<?php namespace Winter\Location\Models;
+<?php
 
-use Model;
+namespace Winter\Location\Models;
+
+use Winter\Storm\Database\Model;
 
 class Setting extends Model
 {
