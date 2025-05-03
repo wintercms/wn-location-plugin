@@ -2,10 +2,10 @@
 
 namespace Winter\Location\Tests\Feature;
 
-use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Location\Models\Country;
+use Winter\Location\Tests\BaseTestCase;
 
-class LocationIsoTest extends PluginTestCase
+class LocationIsoTest extends BaseTestCase
 {
     public function testGetCountryIso()
     {

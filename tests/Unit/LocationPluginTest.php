@@ -4,16 +4,7 @@ namespace Winter\Location\Tests\Unit;
 
 use System\Classes\PluginBase;
 use Winter\Location\Plugin;
-
-if (class_exists('System\Tests\Bootstrap\PluginTestCase')) {
-    class BaseTestCase extends \System\Tests\Bootstrap\PluginTestCase
-    {
-    }
-} else {
-    class BaseTestCase extends \PluginTestCase
-    {
-    }
-}
+use Winter\Location\Tests\BaseTestCase;
 
 class LocationPluginTest extends BaseTestCase
 {

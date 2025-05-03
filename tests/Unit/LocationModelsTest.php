@@ -4,6 +4,7 @@ namespace Winter\Location\Tests\Unit;
 
 use Winter\Location\Models\Country;
 use Winter\Location\Models\State;
+use Winter\Location\Tests\BaseTestCase;
 
 class LocationModelsTest extends BaseTestCase
 {
