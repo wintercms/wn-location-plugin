@@ -2,11 +2,20 @@
 
 namespace Winter\Location\Tests\Unit;
 
-use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Location\Models\Country;
 use Winter\Location\Models\State;
 
-class LocationModelsTest extends PluginTestCase
+if (class_exists('System\Tests\Bootstrap\PluginTestCase')) {
+    class BaseTestCase extends \System\Tests\Bootstrap\PluginTestCase
+    {
+    }
+} else {
+    class BaseTestCase extends \PluginTestCase
+    {
+    }
+}
+
+class LocationModelsTest extends BaseTestCase
 {
     public function testGetCountry()
     {
