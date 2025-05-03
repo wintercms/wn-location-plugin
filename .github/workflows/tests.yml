@@ -52,7 +52,7 @@ jobs:
         run: composer install --no-interaction --no-progress --no-scripts
 
       - name: Run linting
-        run: ./vendor/bin/parallel-lint plugins/winter/user
+        run: ./vendor/bin/parallel-lint plugins/winter/location
 
       - name: Run unit tests (develop branch)
         if: matrix.winterBranch != '1.1'
