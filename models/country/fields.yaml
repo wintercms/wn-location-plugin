@@ -21,3 +21,8 @@ fields:
         label: winter.location::lang.country.code
         span: auto
         comment: winter.location::lang.country.code_comment
+
+    _states:
+        type: partial
+        path: form_states
+        context: update
