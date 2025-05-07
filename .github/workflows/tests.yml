@@ -49,7 +49,9 @@ jobs:
           extensions: ${{ env.extensions }}
 
       - name: Install Composer dependencies
-        run: composer install --no-interaction --no-progress --no-scripts
+        run: |
+          sed -i "/\"plugins\/myauthor\/\*\/composer.json\"/c \"plugins\/winter\/\*\/composer.json\"" composer.json
+          composer install --no-interaction --no-progress --no-scripts
 
       - name: Run linting
         run: ./vendor/bin/parallel-lint plugins/winter/location
