@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Setup Winter
-        uses: wintercms/setup-winter-action@270c22d2d402e4a2c23d5b1e0eb9bdda2b541f78
+        uses: wintercms/setup-winter-action@ab15fa535a7d1d759df2af2d8d1fddaebef56cab
         with:
           php-version: ${{ matrix.phpVersion }}
           winter-ref: ${{ matrix.winterBranch }}
