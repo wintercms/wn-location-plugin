@@ -8,5 +8,5 @@ states:
     form: ~/plugins/winter/location/models/state/fields.yaml
     view:
         showSearch: true
-        toolbarPartial: $/winter/location/controllers/locations/_states_list_toolbar.htm
+        toolbarPartial: $/winter/location/controllers/locations/_states_list_toolbar.php
         filter: $/winter/location/models/state/filters.yaml
