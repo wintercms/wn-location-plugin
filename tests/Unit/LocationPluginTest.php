@@ -3,10 +3,10 @@
 namespace Winter\Location\Tests\Unit;
 
 use System\Classes\PluginBase;
-use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Location\Plugin;
+use Winter\Location\Tests\BaseTestCase;
 
-class LocationPluginTest extends PluginTestCase
+class LocationPluginTest extends BaseTestCase
 {
     protected PluginBase $plugin;
 
