@@ -1,4 +1,4 @@
-name: Tests
+name: Winter Location Tests
 
 on:
   push:
