@@ -118,7 +118,7 @@ class Country extends Model
      *
      * @return array
      */
-    public function getIsoAttribute():
+    public function getIsoAttribute()
     {
         if (self::$iso) {
             return self::$iso;
