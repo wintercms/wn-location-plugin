@@ -2,6 +2,8 @@
 
 namespace Winter\Location\Tests;
 
-class BaseTestCase extends \System\Tests\Bootstrap\PluginTestCase
-{
+if (class_exists('\System\Tests\Bootstrap\PluginTestCase')) {
+    class BaseTestCase extends \System\Tests\Bootstrap\PluginTestCase
+    {
+    }
 }
