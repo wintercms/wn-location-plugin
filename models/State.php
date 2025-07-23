@@ -1,7 +1,9 @@
-<?php namespace Winter\Location\Models;
+<?php 
+
+namespace Winter\Location\Models;
 
 use Form;
-use Model;
+use Winter\Storm\Database\Model;
 
 /**
  * State Model

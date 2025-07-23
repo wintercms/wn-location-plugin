@@ -37,3 +37,5 @@
 "2.0.2":
     - Include Russian states (subjects)
     - v2.0.2/seed_ru_states.php
+"2.1.0":
+    - Add ISO 3166-1 data accessors to the Country model
