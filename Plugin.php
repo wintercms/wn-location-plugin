@@ -4,14 +4,17 @@ use Backend;
 use System\Classes\PluginBase;
 
 /**
- * Location Plugin Information File
+ * Location Plugin
+ *
+ * Location based features, such as Country and State
+ *
+ * @author Alexey Bobkov, Samuel Georges (original plugin)
+ * @author Winter CMS
  */
 class Plugin extends PluginBase
 {
     /**
-     * Returns information about this plugin.
-     *
-     * @return array
+     * {@inheritDoc}
      */
     public function pluginDetails()
     {
@@ -25,6 +28,9 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerSettings()
     {
         return [
@@ -50,6 +56,19 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function registerComponents()
+    {
+        return [
+            'Winter\Location\Components\LocationPicker' => 'locationPicker',
+        ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function registerPermissions()
     {
         return [
@@ -58,8 +77,7 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Register new Twig variables
-     * @return array
+     * {@inheritDoc}
      */
     public function registerMarkupTags()
     {
@@ -72,7 +90,7 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Registers any form widgets implemented in this plugin.
+     * {@inheritDoc}
      */
     public function registerFormWidgets()
     {
@@ -81,22 +99,6 @@ class Plugin extends PluginBase
                 'label' => 'Address Finder',
                 'code'  => 'addressfinder'
             ]
-        ];
-    }
-
-    public function registerClassAliases()
-    {
-        /**
-         * To allow compatibility with plugins that extend the original RainLab.Location plugin,
-         * this will alias those classes to use the new Winter.Location classes.
-         */
-        return [
-            \Winter\Location\Plugin::class                     => \RainLab\Location\Plugin::class,
-            \Winter\Location\Controllers\Locations::class      => \RainLab\Location\Controllers\Locations::class,
-            \Winter\Location\FormWidgets\AddressFinder::class  => \RainLab\Location\FormWidgets\AddressFinder::class,
-            \Winter\Location\Models\State::class               => \RainLab\Location\Models\State::class,
-            \Winter\Location\Models\Setting::class             => \RainLab\Location\Models\Setting::class,
-            \Winter\Location\Models\Country::class             => \RainLab\Location\Models\Country::class,
         ];
     }
 }

@@ -1,0 +1,25 @@
+{% if not selectedCountryId %}
+    <div class="form-group">
+        <label for="accountCountry">{{ trans('winter.location::lang.locationPicker.countryFieldName.title') }}</label>
+        {{ form_select_country(__SELF__.property('countryFieldName'), countryId, {
+            id: 'accountCountry',
+            class: 'form-control',
+            emptyOption: '',
+            'data-request': 'onInit',
+            'data-request-update': {
+                (__SELF__ ~ '::state'): '#stateSelection'
+            }
+        }) }}
+    </div>
+{% else %}
+    <input name="{{ __SELF__.property('countryFieldName') }}" type="hidden" value="{{ selectedCountryId }}" />
+{% endif %}
+
+<div class="form-group" id="stateSelection">
+    <label for="accountState">{{ trans('winter.location::lang.locationPicker.stateFieldName.title') }}</label>
+    {{ form_select_state(__SELF__.property('stateFieldName'), countryId, stateId, {
+        id: 'accountState',
+        class: 'form-control',
+        emptyOption: ''
+    }) }}
+</div>
