@@ -1,4 +1,4 @@
-name: Tests
+name: Winter Location Tests
 
 on:
   push:
@@ -16,11 +16,6 @@ jobs:
       matrix:
         operatingSystem: [ubuntu-latest]
         phpVersion: ['8.1', '8.2', '8.3', '8.4']
-        winterBranch: ['develop']
-        include:
-          - operatingSystem: ubuntu-latest
-            phpVersion: '7.4'
-            winterBranch: '1.1'
       fail-fast: false
 
     name: PHP ${{ matrix.phpVersion }} / Winter ${{ matrix.winterBranch }}
@@ -34,7 +29,6 @@ jobs:
         uses: wintercms/setup-winter-action@v1
         with:
           php-version: ${{ matrix.phpVersion }}
-          winter-ref: ${{ matrix.winterBranch }}
           plugin-author: winter
           plugin-name: location
 
@@ -42,10 +36,4 @@ jobs:
         run: ./vendor/bin/parallel-lint plugins/winter/location
 
       - name: Run unit tests (develop branch)
-        if: matrix.winterBranch != '1.1'
         run: php artisan winter:test -p Winter.Location -- --testdox
-
-      - name: Run unit tests (1.1 branch)
-        if: matrix.winterBranch == '1.1'
-        working-directory: plugins/winter/location
-        run: ../../../vendor/bin/phpunit --bootstrap ../../../tests/bootstrap.php --testdox

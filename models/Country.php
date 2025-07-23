@@ -124,9 +124,7 @@ class Country extends Model
             return self::$iso;
         }
 
-        try {
-            return self::$iso = (new \League\ISO3166\ISO3166)->alpha2($this->code);
-        } catch (\Throwable $th) {}
+        return self::$iso = (new \League\ISO3166\ISO3166)->alpha2($this->code);
     }
 
     /**
