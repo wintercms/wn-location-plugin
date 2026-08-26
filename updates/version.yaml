@@ -42,3 +42,5 @@
 "2.2.0":
     - "Make use of the new default backend views provided by Winter 1.2.8+"
     - "Add new LocationPicker Component"
+"2.2.1":
+    - "Widen the winter/wn-backend-module constraint to ^1.2.8 to allow installation alongside Winter 1.3"
