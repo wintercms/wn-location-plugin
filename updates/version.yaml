@@ -44,3 +44,5 @@
     - "Add new LocationPicker Component"
 "2.2.1":
     - "Widen the winter/wn-backend-module constraint to ^1.2.8 to allow installation alongside Winter 1.3"
+"2.2.2":
+    - "Fix the Maps API asset failing to load when the AddressFinder form widget is rendered over AJAX"

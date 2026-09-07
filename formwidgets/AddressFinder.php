@@ -89,7 +89,7 @@ class AddressFinder extends FormWidgetBase
     public function loadAssets()
     {
         $apiKey = Setting::get('google_maps_key');
-        $this->addJs('//maps.googleapis.com/maps/api/js?libraries=places&key='.$apiKey);
+        $this->addJs('https://maps.googleapis.com/maps/api/js?libraries=places&key='.$apiKey);
         $this->addJs('js/location-autocomplete.js', 'core');
     }
 }
